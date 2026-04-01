@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Arial', sans-serif;
+
+    background: linear-gradient(
+        270deg,
+        #ff9a9e,
+        #fad0c4,
+        #fbc2eb,
+        #a18cd1,
+        #84fab0,
+        #8fd3f4
+    );
+
+    background-size: 1200% 1200%;
+    animation: rainbowBG 15s ease infinite;
+}
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+@keyframes rainbowBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    background: linear-gradient(45deg, #ff4d6d, #ff9a9e, #fad0c4);
+    background-size: 200%;
+
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+
+    animation: glow 3s infinite;
+}
+button:active {
+    transform: scale(0.95);
+}
+@keyframes glow {
+    0% {
+        background-position: 0%;
+        box-shadow: 0 0 10px #ff4d6d;
+    }
+    50% {
+        background-position: 100%;
+        box-shadow: 0 0 25px #ff9a9e;
+    }
+    100% {
+        background-position: 0%;
+        box-shadow: 0 0 10px #fad0c4;
+    }
+}
+.hidden {
+    display: none;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(-100px);
+    }
+}
+#falling-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* ไม่รบกวนการคลิก */
+    overflow: hidden;
+}
+
+.fall-char {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0); /* เปลี่ยนสีตามชอบ */
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
